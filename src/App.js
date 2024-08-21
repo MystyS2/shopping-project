@@ -21,10 +21,10 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/product' element={<ProductAll />} />
-          <Route path='/product:id' element={<ProductDetail />} />
+          <Route path='/shopping-project/' element={<Home/>} />
+          <Route path='/shopping-project/login' element={<Login />} />
+          <Route path='/shopping-project/product' element={<ProductAll />} />
+          <Route path='/shopping-project/product:id' element={<ProductDetail />} />
         </Routes>
       </div>      
     </NextUIProvider>

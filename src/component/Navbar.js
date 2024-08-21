@@ -12,7 +12,7 @@ const Navbar = () => {
         <div>로그인</div>
       </div>
       <div className="nav-section">
-        <img src="/assets/logo.png" />
+        <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
       </div>
       <div className="menu-area">
         <ul className="menu-list">
