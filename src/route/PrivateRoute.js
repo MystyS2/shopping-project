@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({authenticate, type}) => {
   return (
-    authenticate === true? (type==='all'?<ProductDetail />:<New />) :<Navigate to="/shopping-project/login" />
+    authenticate? <ProductDetail />:<New />
   )
 }
 

@@ -8,6 +8,7 @@ import Login from './page/Login';
 import Navbar from './component/Navbar';
 import { useEffect, useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
+import New from './page/New';
 
 // 0. 메인 컬러 : #9face1 하이라이트 컬러 : #ffd05c 그림자 컬러 : #5168c5 배경 컬러 : #faf4dc
 // 1. 전체 상품 페이지, 로그인, 상품 상세페이지
@@ -33,7 +34,7 @@ function App() {
           <Route path='/shopping-project/login' element={<Login setAuthenticate={setAuthenticate} />} />
           <Route path='/shopping-project/product' element={<ProductAll />} />
           <Route path='/shopping-project/product/:id' element={<PrivateRoute authenticate={authenticate} type='all' />} />
-          <Route path='/shopping-project/new' element={<PrivateRoute authenticate={authenticate} type='new' />} />
+          <Route path='/shopping-project/new' element={<New />} />
         </Routes>
       </div>      
     </NextUIProvider>
