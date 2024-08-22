@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 const ProductCard = ({item}) => {
   const navigate = useNavigate();
   const goToDetail = () =>{
-    navigate('/shopping-project/product:id');
+    navigate(`/shopping-project/product/${item.id}`);
   }
   return (
     <div className='product-card' onClick={goToDetail}>
