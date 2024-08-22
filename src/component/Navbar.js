@@ -1,10 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  const menuList = ["Hot🔥", "New✨", "Short", "Long"];
+  const menuList = {
+    'hot' : "Hot🔥", 
+    'new' : "New✨", 
+    'product' : "All", 
+    'long' : "Long", 
+    'short' : "Short", 
+    'gel' : "Gel", 
+    'polish' : "Polish"
+  };
+
   return (
     <div>
       <div className="login-button">
@@ -16,8 +26,8 @@ const Navbar = () => {
       </div>
       <div className="menu-area">
         <ul className="menu-list">
-          {menuList.map((menu, index) => (
-            <li key={index}>{menu}</li>
+          {Object.entries(menuList).map((item, index) => (
+            <Link to={'/shopping-project/'+item[0]} key={index}>{item[1]}</Link>
           ))}
         </ul>
       </div>
