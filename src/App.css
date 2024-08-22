@@ -91,7 +91,13 @@ body{
     margin-top: 20px;
 }
 
-.product-card:hover{
+.card-image{
+    width: 250px;
+    height: 375px;
+    overflow: hidden;
+}
+
+.card-image img:hover{
     transform: scale(1.05, 1.05);
     transition: all ease 0.5s;
     cursor: pointer; 
