@@ -11,7 +11,6 @@ const New = () => {
   };
   useEffect(() => {
     getProducts();
-    console.log(productList.new);
   }, []);
   return (
     <div>
