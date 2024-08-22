@@ -3,7 +3,7 @@ body{
     top: 0;
     background-color: #faf4dc;
     width: 100vw;
-
+    min-height: 100vh;
 }
 
 .login-button{
@@ -74,10 +74,14 @@ body{
     cursor: pointer;
 }
 
+.container{
+    max-width: 1200px;
+}
+
 .product-card{
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    width: 250px;
     margin-top: 20px;
 }
 
