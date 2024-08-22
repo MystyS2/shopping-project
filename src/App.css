@@ -13,8 +13,17 @@ body{
     gap: 10px;
 }
 
+.login-button{
+    color: #ffd05c;
+    cursor: pointer;
+}
+
 .login-button svg{
     align-self: center;
+}
+
+.login-button svg:hover, .login-button a:hover{
+    color: #5168c5;
 }
 
 .nav-section{
@@ -41,22 +50,19 @@ body{
 }
 
 .search-box{
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin: auto 0;
+    top: 60px;
+    right: 10px;
+    position: fixed;
+}
+
+.group.flex.flex-col{
+    border-radius: 16px;
+    background-color: #ffffffc2;
 }
 
 .search-box svg{
     color: #ffd05c;
-    align-self: center;
-}
-
-.search-box input{
-    width: 180px;
-    border-bottom: solid 1px #9face1;
-    margin-right: 30px;
-    background-color: #faf4dc;
+    align-self: auto;
 }
 
 .banners{

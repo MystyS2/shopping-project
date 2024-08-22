@@ -1,39 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   const menuList = {
-    'hot' : "Hot🔥", 
-    'new' : "New✨", 
-    'product' : "All", 
-    'long' : "Long", 
-    'short' : "Short", 
-    'gel' : "Gel", 
-    'polish' : "Polish"
+    hot: "Hot🔥",
+    new: "New✨",
+    product: "All",
+    long: "Long",
+    short: "Short",
+    gel: "Gel",
+    polish: "Polish",
   };
+
+  let [OpensearchBox, SetOpenSearchBox] = useState(false);
 
   return (
     <div>
       <div className="login-button">
+        <FontAwesomeIcon icon={faMagnifyingGlass} onClick={()=>{SetOpenSearchBox(!OpensearchBox);}}/>
         <FontAwesomeIcon icon={faUser} />
-        <div>로그인</div>
+        <Link to="/shopping-project/login">로그인</Link>
+        {OpensearchBox && <SearchBox />}
       </div>
+
       <div className="nav-section">
-        <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
+        <Link to="/shopping-project/">
+          <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
+        </Link>
       </div>
       <div className="menu-area">
         <ul className="menu-list">
           {Object.entries(menuList).map((item, index) => (
-            <Link to={'/shopping-project/'+item[0]} key={index}>{item[1]}</Link>
+            <Link to={"/shopping-project/" + item[0]} key={index}>
+              {item[1]}
+            </Link>
           ))}
         </ul>
-      </div>
-      <div className="search-box">
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
-        <input type="text" placeholder="검색하기"/>
       </div>
     </div>
   );
