@@ -6,6 +6,7 @@ import ProductAll from './page/ProductAll';
 import ProductDetail from './page/ProductDetail';
 import Login from './page/Login';
 import Navbar from './component/Navbar';
+import { useEffect, useState } from 'react';
 
 // 0. 메인 컬러 : #9face1 하이라이트 컬러 : #ffd05c 그림자 컬러 : #5168c5 배경 컬러 : #faf4dc
 // 1. 전체 상품 페이지, 로그인, 상품 상세페이지
@@ -16,15 +17,21 @@ import Navbar from './component/Navbar';
 // 6. 상품 검색 기능
 
 function App() {
+  const [authenticate, setAuthenticate] = useState(false);
+
+  useEffect(()=>{
+    console.log(authenticate);
+  },[authenticate])
+
   return (
     <NextUIProvider>
       <div className="App">
         <Navbar />
         <Routes>
           <Route path='/shopping-project/' element={<Home/>} />
-          <Route path='/shopping-project/login' element={<Login />} />
+          <Route path='/shopping-project/login' element={<Login setAuthenticate={setAuthenticate} />} />
           <Route path='/shopping-project/product' element={<ProductAll />} />
-          <Route path='/shopping-project/product:id' element={<ProductDetail />} />
+          <Route path='/shopping-project/product:id' element={authenticate?<ProductDetail />:<Login setAuthenticate={setAuthenticate} />} />
         </Routes>
       </div>      
     </NextUIProvider>

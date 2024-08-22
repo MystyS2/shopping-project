@@ -15,7 +15,7 @@ const ProductAll = () => {
 
   return (
     <div>
-      <div className="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+      <div className="product-all container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
         {productList.map((item, index) => (
           <ProductCard item={item} key={index}/>
         ))}

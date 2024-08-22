@@ -1,4 +1,8 @@
-body{
+html {
+    font-size: 16px;
+}
+
+body {
     position: absolute;
     top: 0;
     background-color: #faf4dc;
@@ -6,99 +10,123 @@ body{
     min-height: 100vh;
 }
 
-.login-button{
+.login-button {
     display: flex;
     justify-content: flex-end;
     margin: 20px;
     gap: 10px;
 }
 
-.login-button{
+.login-button {
     color: #ffd05c;
     cursor: pointer;
 }
 
-.login-button svg{
+.login-button svg {
     align-self: center;
 }
 
-.login-button svg:hover, .login-button a:hover{
+.login-button svg:hover,
+.login-button a:hover {
     color: #5168c5;
 }
 
-.nav-section{
-    display: flex;
-    justify-content: center ;
-}
-
-.menu-area{
+.nav-section {
     display: flex;
     justify-content: center;
 }
-.menu-list{
+
+.menu-area {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list {
     display: flex;
     list-style-type: none;
 }
 
-.menu-list a{
+.menu-list a {
     padding: 10px;
 }
 
-.menu-list a:hover{
+.menu-list a:hover {
     color: #5168c5;
     cursor: pointer;
 }
 
-.search-box{
+.search-box {
     top: 60px;
     right: 10px;
     position: fixed;
 }
 
-.group.flex.flex-col{
+.group.flex.flex-col {
     border-radius: 16px;
     background-color: #ffffffc2;
 }
 
-.search-box svg{
+.search-box svg {
     color: #ffd05c;
     align-self: auto;
 }
 
-.banners{
+.banners {
     margin: 20px auto;
 }
 
-.banners img{
+.banners img {
     width: 250px;
     margin: 10px auto;
 }
 
-.banners img:hover{
+.banners img:hover {
     transform: scale(1.1, 1.1);
     transition: all ease 0.6s;
     cursor: pointer;
 }
 
-.container{
+.product-all {
     max-width: 1200px;
 }
 
-.product-card{
+.product-card {
     display: flex;
     flex-direction: column;
     width: 250px;
     margin-top: 20px;
+    cursor: pointer;
 }
 
-.card-image{
+.product-card:hover {
+    color: #5168c5;
+}
+
+.card-image {
     width: 250px;
     height: 375px;
     overflow: hidden;
 }
 
-.card-image img:hover{
+.card-image img:hover {
     transform: scale(1.05, 1.05);
     transition: all ease 0.5s;
-    cursor: pointer; 
+    cursor: pointer;
+}
+
+
+.login {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin-top: 50px;
+}
+
+.login h1 {
+    color: #5168c5;
+    font-size: 2rem;
+    font-weight: bold;
 }
