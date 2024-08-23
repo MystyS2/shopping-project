@@ -74,7 +74,7 @@ const ProductDetail = () => {
           <div className="flex mb-3">
             {productDetail && productDetail.new 
               ? (<img
-                src="https://mystys2.github.io/shopping-project/assets/newIcon.png"
+                src="https://github.com/MystyS2/shopping-project/blob/master/public/assets/newIcon.png?raw=true"
                 alt="new"
                 className="h-9"
               />) 

@@ -83,7 +83,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
       <div className="flex justify-center">
         <Link to="/shopping-project/">
-          <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
+          <img src="https://github.com/MystyS2/shopping-project/blob/master/public/assets/logo.png?raw=true" />
         </Link>
       </div>
 
