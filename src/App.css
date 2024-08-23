@@ -69,20 +69,12 @@ body {
 }
 
 .product-card {
-    display: flex;
-    flex-direction: column;
     width: 250px;
     margin-top: 20px;
-    cursor: pointer;
-}
-
-.product-card:hover {
-    color: #5168c5;
 }
 
 .card-image {
     width: 250px;
-    height: 375px;
     overflow: hidden;
 }
 
