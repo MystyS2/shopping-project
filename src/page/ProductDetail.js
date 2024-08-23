@@ -75,8 +75,8 @@ const ProductDetail = () => {
             {productDetail && productDetail.new 
               ? (<img
                 src="https://mystys2.github.io/shopping-project/assets/newIcon.png"
-                width="36px"
                 alt="new"
+                className="h-9"
               />) 
               : ("")}
             <div className="product-title font-semibold text-2xl">
@@ -88,19 +88,54 @@ const ProductDetail = () => {
             ₩ {productDetail?.price}
           </div>
 
-          <Select
-            key="secondary"
-            color="secondary"
-            label="Size"
-            placeholder="Select an size"
-            className="my-4 w-full max-w-xs"
-          >
-            {productDetail
-              ? Object.entries(productDetail.size).map((item) => (
-                  <SelectItem key={item[0]}>{item[1]}</SelectItem>
-                ))
-              : ""}
-          </Select>
+          {productDetail?.hasOwnProperty('size')
+          ? <Select
+              key="secondary"
+              color="secondary"
+              label="Size"
+              placeholder="Select an size"
+              className="my-4 w-full max-w-xs"
+            >
+              {productDetail
+                ? Object.entries(productDetail.size).map((item) => (
+                    <SelectItem key={item[0]}>{item[1]}</SelectItem>
+                  ))
+                : ""}
+            </Select>
+          :''}
+
+          {productDetail?.hasOwnProperty('size')
+          ? <Select
+              key="secondary"
+              color="secondary"
+              label="Size"
+              placeholder="Select an size"
+              className="my-4 w-full max-w-xs"
+            >
+              {productDetail
+                ? Object.entries(productDetail.size).map((item) => (
+                    <SelectItem key={item[0]}>{item[1]}</SelectItem>
+                  ))
+                : ""}
+            </Select>
+          :''}
+
+          {productDetail?.hasOwnProperty('colors')
+          ? <Select
+              key="secondary"
+              color="secondary"
+              label="Colors"
+              placeholder="Select an color"
+              className="my-4 w-full max-w-xs"
+            >
+              {productDetail
+                ? Object.entries(productDetail.colors).map((item) => (
+                    <SelectItem key={item[0]}>{item[1]}</SelectItem>
+                  ))
+                : ""}
+            </Select>
+          :''}
+
 
           <div className="flex mx-auto my-4 gap-4 items-center w-fit">
             <Button isIconOnly size="sm" color="secondary" aria-label="minus" onClick={handleDecrement}>
@@ -120,10 +155,10 @@ const ProductDetail = () => {
 
           <div className="flex">
             <Button className="w-1/2 m-1" variant="ghost" color="secondary">
-              장바구니
+              Add to Cart
             </Button>
             <Button className="w-1/2 m-1" variant="ghost" color="danger">
-              구매하기
+              Buy Now
             </Button>
           </div>
         </div>

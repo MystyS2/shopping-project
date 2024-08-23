@@ -15,6 +15,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     short: "Short",
     gel: "Gel",
     polish: "Polish",
+    clothes: "Clothes"
   };
 
   let [openSearchBox, setOpenSearchBox] = useState(false);
@@ -48,7 +49,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       <div className="head-container flex max-mobile-login:justify-between max-mobile-login:w-wvh gap-3 m-5">
         <FontAwesomeIcon icon={faBars} onClick={()=>setMobileMenu(true)} className="mobile-login:hidden"/>
         {mobileMenu === true
-        ? <div className="mobile-login:hidden fixed left-0 top-0 bg-themecolor-main w-40 h-full">
+        ? <div className="mobile-login:hidden fixed left-0 top-0 bg-themecolor-main w-40 h-full z-20">
           <h1 className="font-semibold text-xl m-5 text-red-500"><FontAwesomeIcon icon={faX} onClick={()=>setMobileMenu(false)} className="w-3 mr-2 text-red-500"/>MENU</h1>
           <ul className="menu-list flex flex-col">
             {Object.entries(menuList).map((item, index) => (
