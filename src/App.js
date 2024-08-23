@@ -5,7 +5,7 @@ import Home from './page/Home';
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import Navbar from './component/Navbar';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
 import HotNew from './page/HotNew';
 import ProductList from './page/ProductList';

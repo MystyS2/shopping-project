@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "./SearchBox";
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = {
