@@ -104,22 +104,6 @@ const ProductDetail = () => {
             </Select>
           :''}
 
-          {productDetail?.hasOwnProperty('size')
-          ? <Select
-              key="secondary"
-              color="secondary"
-              label="Size"
-              placeholder="Select an size"
-              className="my-4 w-full max-w-xs"
-            >
-              {productDetail
-                ? Object.entries(productDetail.size).map((item) => (
-                    <SelectItem key={item[0]}>{item[1]}</SelectItem>
-                  ))
-                : ""}
-            </Select>
-          :''}
-
           {productDetail?.hasOwnProperty('colors')
           ? <Select
               key="secondary"
