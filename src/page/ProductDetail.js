@@ -45,7 +45,7 @@ const ProductDetail = () => {
   }, []);
 
   return (
-    <div className="detail-box container mx-auto my-10 h-auto justify-center w-auto bg-white
+    <div className="detail-container container mx-auto my-10 h-auto justify-center w-auto bg-white
     flex flex-col align-middle px-16 pt-8 pb-16 gap-8
     max-md:mx-5
     max-lg:mx-20">
@@ -55,13 +55,13 @@ const ProductDetail = () => {
         <BreadcrumbItem>{productDetail?.title}</BreadcrumbItem>
       </Breadcrumbs>
       <div
-        className="detail-box container h-auto justify-center w-auto
-      flex align-middle gap-10 
-      max-md:flex-col
-      max-md:mx-5
-      max-lg:mx-20"
+        className="container h-auto justify-center w-auto
+        flex align-middle gap-10 
+        max-md:flex-col
+        max-md:mx-5
+        max-lg:mx-20"
       >
-        <div className="detail-image flex justify-center">
+        <div className="flex justify-center">
           <Image
             className="bg-white"
             isZoomed
@@ -70,17 +70,15 @@ const ProductDetail = () => {
             src={productDetail?.img}
           />
         </div>
-        <div className="detail-box flex flex-col">
+        <div className="flex flex-col w-3/5 max-md:w-full">
           <div className="flex mb-3">
-            {productDetail && productDetail.new ? (
-              <img
+            {productDetail && productDetail.new 
+              ? (<img
                 src="https://mystys2.github.io/shopping-project/assets/newIcon.png"
                 width="36px"
                 alt="new"
-              />
-            ) : (
-              ""
-            )}
+              />) 
+              : ("")}
             <div className="product-title font-semibold text-2xl">
               {productDetail?.title}
             </div>
@@ -105,13 +103,13 @@ const ProductDetail = () => {
           </Select>
 
           <div className="flex mx-auto my-4 gap-4 items-center w-fit">
-            <Button isIconOnly size="sm" color="danger" aria-label="minus" onClick={handleDecrement}>
+            <Button isIconOnly size="sm" color="secondary" aria-label="minus" onClick={handleDecrement}>
               <FontAwesomeIcon icon={faMinus} />
             </Button>
 
             <Input isReadOnly variant="bordered" value={count} className="amount-box w-10" />
 
-            <Button isIconOnly size="sm" color="danger" aria-label="plus" onClick={handleIncrement}>
+            <Button isIconOnly size="sm" color="secondary" aria-label="plus" onClick={handleIncrement}>
               <FontAwesomeIcon icon={faPlus} />
             </Button>
           </div>
@@ -124,7 +122,7 @@ const ProductDetail = () => {
             <Button className="w-1/2 m-1" variant="ghost" color="secondary">
               장바구니
             </Button>
-            <Button className="w-1/2 m-1" variant="ghost" color="secondary">
+            <Button className="w-1/2 m-1" variant="ghost" color="danger">
               구매하기
             </Button>
           </div>
