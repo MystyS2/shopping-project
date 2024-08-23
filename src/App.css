@@ -10,24 +10,24 @@ body {
     min-height: 100vh;
 }
 
-.login-button {
+.head-container {
     display: flex;
     justify-content: flex-end;
     margin: 20px;
     gap: 10px;
 }
 
-.login-button {
+.head-container {
     color: #ffd05c;
     cursor: pointer;
 }
 
-.login-button svg {
+.head-container svg {
     align-self: center;
 }
 
-.login-button svg:hover,
-.login-button a:hover {
+.head-container svg:hover,
+.head-container a:hover {
     color: #5168c5;
 }
 
@@ -133,6 +133,7 @@ body {
 
 .detail-container{
     max-width: 1000px;
+    min-height: 400px;
     border-radius: 10px;
 }
 

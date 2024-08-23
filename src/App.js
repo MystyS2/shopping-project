@@ -22,9 +22,6 @@ function App() {
   // 로그인 여부
   const [authenticate, setAuthenticate] = useState(false);
 
-  useEffect(()=>{
-  },[authenticate])
-
   return (
     <NextUIProvider>
       <div className="App">
