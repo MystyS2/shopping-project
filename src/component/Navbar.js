@@ -63,13 +63,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         {openSearchBox && (<div ref={searchBoxRef}><SearchBox /></div>)}
       </div>
 
-      <div className="nav-section">
+      <div className="flex justify-center">
         <Link to="/shopping-project/">
           <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
         </Link>
       </div>
-      <div className="menu-area">
-        <ul className="menu-list">
+      <div className="flex justify-center">
+        <ul className="menu-list flex">
           {Object.entries(menuList).map((item, index) => (
             <Link to={"/shopping-project/" + item[0]} key={index}>
               {item[1]}

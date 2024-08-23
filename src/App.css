@@ -31,21 +31,6 @@ body {
     color: #5168c5;
 }
 
-.nav-section {
-    display: flex;
-    justify-content: center;
-}
-
-.menu-area {
-    display: flex;
-    justify-content: center;
-}
-
-.menu-list {
-    display: flex;
-    list-style-type: none;
-}
-
 .menu-list a {
     padding: 10px;
 }
