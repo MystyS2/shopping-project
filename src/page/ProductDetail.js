@@ -55,9 +55,9 @@ const ProductDetail = () => {
           placeholder="Select an size"
           className="max-w-xs"
         >
-          {Object.entries(productDetail?.size).map((item) => (
+          {productDetail ? Object.entries(productDetail.size).map((item) => (
             <SelectItem key={item[0]}>{item[1]}</SelectItem>
-          ))}
+          )) : ''}
         </Select>
       </div>
     </div>
