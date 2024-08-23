@@ -27,6 +27,7 @@ function App() {
       <div className="App">
         <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
         <Routes>
+          <Route path='/' element={<Home/>} />
           <Route path='/shopping-project/' element={<Home/>} />
           <Route path='/shopping-project/login' element={<Login setAuthenticate={setAuthenticate} />} />
           <Route path='/shopping-project/product' element={<ProductAll />} />
