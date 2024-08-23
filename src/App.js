@@ -28,7 +28,7 @@ function App() {
   return (
     <NextUIProvider>
       <div className="App">
-        <Navbar />
+        <Navbar authenticate={authenticate} />
         <Routes>
           <Route path='/shopping-project/' element={<Home/>} />
           <Route path='/shopping-project/login' element={<Login setAuthenticate={setAuthenticate} />} />

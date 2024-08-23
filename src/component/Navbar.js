@@ -5,7 +5,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "./SearchBox";
 
-const Navbar = () => {
+const Navbar = ({authenticate}) => {
   const menuList = {
     hot: "Hot🔥",
     new: "New✨",
@@ -22,8 +22,9 @@ const Navbar = () => {
     <div>
       <div className="login-button">
         <FontAwesomeIcon icon={faMagnifyingGlass} onClick={()=>{SetOpenSearchBox(!OpensearchBox);}}/>
-        <FontAwesomeIcon icon={faUser} />
-        <Link to="/shopping-project/login">로그인</Link>
+        { authenticate === true
+        ? <FontAwesomeIcon icon={faUser} />
+        : <Link to="/shopping-project/login">로그인</Link>}
         {OpensearchBox && <SearchBox />}
       </div>
 
