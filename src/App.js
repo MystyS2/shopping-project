@@ -31,6 +31,7 @@ function App() {
           <Route path='/shopping-project/login' element={<Login setAuthenticate={setAuthenticate} />} />
           <Route path='/shopping-project/product' element={<ProductAll />} />
           <Route path='/shopping-project/product/:id' element={<PrivateRoute authenticate={authenticate} type='all' />} />
+          <Route path='/shopping-project/hot' element={<ProductAll />} />
           <Route path='/shopping-project/new' element={<New />} />
         </Routes>
       </div>      

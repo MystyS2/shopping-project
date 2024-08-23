@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "./SearchBox";
+import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const menuList = {
@@ -17,6 +18,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
   };
 
   let [openSearchBox, setOpenSearchBox] = useState(false);
+  let [mobileMenu, setMobileMenu] = useState(false);
 
   const searchBoxRef = useRef(null); // 검색 박스를 참조할 ref
 
@@ -43,24 +45,40 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   return (
     <div>
-      <div className="head-container">
-        <FontAwesomeIcon
-          icon={faMagnifyingGlass}
-          onClick={() => {
-            setOpenSearchBox(!openSearchBox);
-          }}
-        />
+      <div className="head-container flex max-mobile-login:justify-between max-mobile-login:w-wvh gap-3 m-5">
+        <FontAwesomeIcon icon={faBars} onClick={()=>setMobileMenu(true)} className="mobile-login:hidden"/>
+        {mobileMenu === true
+        ? <div className="mobile-login:hidden fixed left-0 top-0 bg-themecolor-main w-40 h-full">
+          <h1 className="font-semibold text-xl m-5 text-red-500"><FontAwesomeIcon icon={faX} onClick={()=>setMobileMenu(false)} className="w-3 mr-2 text-red-500"/>MENU</h1>
+          <ul className="menu-list flex flex-col">
+            {Object.entries(menuList).map((item, index) => (
+              <Link to={"/shopping-project/" + item[0]} key={index} className="mx-3 text-themecolor-dark border-b-1 border-themecolor-dark">
+                {item[1]}
+              </Link>
+            ))}
+          </ul>
+        </div>
+        : ''}
 
-        {authenticate === true ? (
-          <div>
-            <FontAwesomeIcon icon={faUser} />
-            <Link to="/shopping-project/" onClick={() => setAuthenticate(false)} className="ml-2">로그아웃</Link>            
-          </div>
-        ) : (
-          <Link to="/shopping-project/login">로그인</Link>
-        )}
+        <div className="flex flex-row gap-3 absolute right-0 mr-3">
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            onClick={() => {
+              setOpenSearchBox(!openSearchBox);
+            }}
+          />
 
-        {openSearchBox && (<div ref={searchBoxRef}><SearchBox /></div>)}
+          {authenticate === true ? (
+            <div>
+              <FontAwesomeIcon icon={faUser} />
+              <Link to="/shopping-project/" onClick={() => setAuthenticate(false)} className="ml-3 ">로그아웃</Link>            
+            </div>
+          ) : (
+            <Link to="/shopping-project/login">로그인</Link>
+          )}
+
+          {openSearchBox && (<div ref={searchBoxRef}><SearchBox /></div>)}
+        </div>
       </div>
 
       <div className="flex justify-center">
@@ -68,7 +86,8 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           <img src="https://mystys2.github.io/shopping-project/assets/logo.png" />
         </Link>
       </div>
-      <div className="flex justify-center">
+
+      <div className="flex justify-center max-mobile-login:hidden">
         <ul className="menu-list flex">
           {Object.entries(menuList).map((item, index) => (
             <Link to={"/shopping-project/" + item[0]} key={index}>
@@ -77,6 +96,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           ))}
         </ul>
       </div>
+
     </div>
   );
 };

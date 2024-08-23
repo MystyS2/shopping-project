@@ -14,7 +14,16 @@ module.exports = {
       'mobile-login': '450px',
       // => @media (min-width: 450px) { ... }
     },
-    extend: {},
+    extend: {
+      colors: {
+        themecolor: {
+          main: "#9face1",
+          dark: "#5168c5",
+          bg: "#faf4dc",
+          point: "#ffd05c"
+        }
+      }
+    },
   },
   darkMode: "class",
   plugins: [nextui(
