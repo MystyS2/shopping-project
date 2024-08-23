@@ -130,3 +130,8 @@ body {
     font-size: 2rem;
     font-weight: bold;
 }
+
+.detail-box{
+    max-width: 1000px;
+    border-radius: 10px;
+}

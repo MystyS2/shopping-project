@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Image } from "@nextui-org/react";
+import { Button, Image, Select, SelectItem } from "@nextui-org/react";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
@@ -18,15 +18,23 @@ const ProductDetail = () => {
   }, []);
 
   return (
-    <div className="container mx-auto grid grid-flow-col grid-cols-3 place-items-center gap-5 p-16 max-mobile-login:p-16">
-      <Image
-        className="col-span-1 bg-white"
-        isZoomed
-        height={360}
-        alt="Product image"
-        src={productDetail?.img}
-      />
-      <div className="detail-box flex flex-col col-span-2">
+    <div
+      className="detail-box container mx-auto my-10 h-auto justify-center w-auto bg-white 
+    flex align-middle gap-10 p-16 
+    max-md:flex-col
+    max-md:mx-5
+    max-lg:mx-20"
+    >
+      <div className="detail-image flex justify-center">
+        <Image
+          className="bg-white"
+          isZoomed
+          height={360}
+          alt="Product image"
+          src={productDetail?.img}
+        />
+      </div>
+      <div className="detail-box flex flex-col">
         <div>
           {productDetail && productDetail.new ? (
             <img
@@ -40,9 +48,17 @@ const ProductDetail = () => {
         </div>
         <div className="product-title">{productDetail?.title}</div>
         <div>₩ {productDetail?.price}</div>
-        <div>
-          {productDetail?.size}
-        </div>
+        <Select
+          key="secondary"
+          color="secondary"
+          label="Size"
+          placeholder="Select an size"
+          className="max-w-xs"
+        >
+          {Object.entries(productDetail?.size).map((item) => (
+            <SelectItem key={item[0]}>{item[1]}</SelectItem>
+          ))}
+        </Select>
       </div>
     </div>
   );
