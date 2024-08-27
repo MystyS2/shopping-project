@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../component/ProductCard";
 import { useSearchParams } from "react-router-dom";
+import { productAction } from "../redux/actions/productAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductAll = () => {
-  const [productList, setProductList] = useState([]);
+  const productList = useSelector((state) => state.productList);
   const [query, setQuery] = useSearchParams();
+  const dispatch = useDispatch();
 
-  const getProducts = async () => {
+  const getProducts = () => {
     let searchQuery = query.get("q") || "";
-    let url = `https://my-json-server.typicode.com/MystyS2/shopping-project/products?q=${searchQuery}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data);
+    dispatch(productAction.getProducts(searchQuery));
   };
+
   useEffect(() => {
     getProducts();
   }, [query]);
 
   return (
     <div>
-        {productList != "" ? (
-          <div className="product-all container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
-          {productList.map((item, index) => (<ProductCard item={item} key={index} />))}
-          </div>
-        ) : (
-          <div className="detail-container container mx-auto my-10 h-auto justify-center w-auto bg-white
+      {productList != "" ? (
+        <div className="product-all container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+          {productList.map((item, index) => (
+            <ProductCard item={item} key={index} />
+          ))}
+        </div>
+      ) : (
+        <div
+          className="detail-container container mx-auto my-10 h-auto justify-center w-auto bg-white
             text-center text-xl font-semibold
             flex flex-col align-middle px-16 pt-8 pb-16 gap-8
             max-md:mx-5
-            max-lg:mx-20">
-            🔍검색 결과가 없습니다.
-          </div>
-        )}
-      
+            max-lg:mx-20"
+        >
+          🔍검색 결과가 없습니다.
+        </div>
+      )}
     </div>
   );
 };

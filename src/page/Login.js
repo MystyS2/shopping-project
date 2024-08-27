@@ -18,6 +18,7 @@ const Login = ({setAuthenticate}) => {
     setAuthenticate(true);
     navigate('/shopping-project/')
   }
+  
   return (
     <div className="container mx-auto grid place-items-center">
       <form className="login grid place-items-center gap-3 p-16 max-mobile-login:p-16"
