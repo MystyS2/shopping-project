@@ -6,18 +6,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authenticateAction } from "../redux/actions/authenticateAction";
 
-const Login = ({ setAuthenticate }) => {
+const Login = () => {
   const dispatch = useDispatch();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   // 비밀번호 보기
   const [isVisible, setIsVisible] = React.useState(false);
-
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   // 로그인, 페이지 이동
   const navigate = useNavigate();
-
   const LoginUser = (event) => {
     event.preventDefault();
     dispatch(authenticateAction.login(id, password));

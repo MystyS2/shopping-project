@@ -11,12 +11,15 @@ import {
 import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { productAction } from "../redux/actions/productAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductDetail = () => {
   let { id } = useParams();
-  const [productDetail, setProductDetail] = useState(null);
   const [count, setCount] = useState(0);
+  const productDetail = useSelector((state) => state.product.detail);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const goToHome=()=>{
     navigate('/shopping-project/');
@@ -33,11 +36,8 @@ const ProductDetail = () => {
     setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0)); // 0 이하로 감소하지 않게
   };
 
-  const getProductDetail = async () => {
-    let url = `https://my-json-server.typicode.com/MystyS2/shopping-project/products/${id}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductDetail(data);
+  const getProductDetail = () => {
+    dispatch(productAction.getDetails(id));
   };
 
   useEffect(() => {

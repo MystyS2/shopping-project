@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ProductCard from "../component/ProductCard";
+import { useSearchParams } from "react-router-dom";
+import { productAction } from "../redux/actions/productAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const HotNew = ({ category }) => {
-  const [productList, setProductList] = useState([]);
+  const productList = useSelector((state) => state.product.productList);
+  const [query, setQuery] = useSearchParams();
+  const dispatch = useDispatch();
 
-  const getProducts = async () => {
-    let url = `https://my-json-server.typicode.com/MystyS2/shopping-project/products/`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data);
+  const getProducts = () => {
+    let searchQuery = query.get("q") || "";
+    dispatch(productAction.getProducts(searchQuery));
   };
 
   useEffect(() => {
