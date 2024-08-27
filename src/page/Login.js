@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
-import { Input, Button, ButtonGroup } from "@nextui-org/react";
-import { useNavigate } from 'react-router-dom';
+import { Input, Button } from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authenticateAction } from "../redux/actions/authenticateAction";
 
-const Login = ({setAuthenticate}) => {
+const Login = ({ setAuthenticate }) => {
+  const dispatch = useDispatch();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   // 비밀번호 보기
   const [isVisible, setIsVisible] = React.useState(false);
 
@@ -15,14 +20,16 @@ const Login = ({setAuthenticate}) => {
 
   const LoginUser = (event) => {
     event.preventDefault();
-    setAuthenticate(true);
-    navigate('/shopping-project/')
-  }
-  
+    dispatch(authenticateAction.login(id, password));
+    navigate("/shopping-project/");
+  };
+
   return (
     <div className="container mx-auto grid place-items-center">
-      <form className="login grid place-items-center gap-3 p-16 max-mobile-login:p-16"
-      onSubmit={(event)=>LoginUser(event)}>
+      <form
+        className="login grid place-items-center gap-3 p-16 max-mobile-login:p-16"
+        onSubmit={(event) => LoginUser(event)}
+      >
         <h1>Login</h1>
         <Input
           isClearable
@@ -32,6 +39,7 @@ const Login = ({setAuthenticate}) => {
           placeholder="Enter your id"
           color="secondary"
           onClear={() => console.log("input cleared")}
+          onChange={(event) => setId(event.target.value)}
           className="max-w-xs max-mobile-login:w-50"
         />
 
@@ -40,6 +48,7 @@ const Login = ({setAuthenticate}) => {
           variant="bordered"
           placeholder="Enter your password"
           color="secondary"
+          onChange={(event) => setPassword(event.target.value)}
           endContent={
             <button
               className="focus:outline-none"

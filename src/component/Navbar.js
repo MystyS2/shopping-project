@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "./SearchBox";
+import { useDispatch, useSelector } from "react-redux";
 
-const Navbar = ({ authenticate, setAuthenticate }) => {
+const Navbar = () => {
   const menuList = {
     hot: "Hot🔥",
     new: "New✨",
@@ -15,6 +16,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     gel: "Gel",
     polish: "Polish",
     clothes: "Clothes"
+  };
+
+  const dispatch = useDispatch();
+  const authenticate = useSelector((state) => state.auth.authenticate);
+
+  const logout = (event) => {
+    dispatch({type:"LOGOUT"});
   };
 
   let [openSearchBox, setOpenSearchBox] = useState(false);
@@ -71,7 +79,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           {authenticate === true ? (
             <div>
               <FontAwesomeIcon icon={faUser} />
-              <Link to="/shopping-project/" onClick={() => setAuthenticate(false)} className="ml-3 ">로그아웃</Link>            
+              <Link to="/shopping-project/" onClick={() => logout()} className="ml-3 ">로그아웃</Link>            
             </div>
           ) : (
             <Link to="/shopping-project/login">로그인</Link>
