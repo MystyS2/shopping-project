@@ -1,18 +1,23 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 let initialState = {
   productList: [],
   detail: [],
 };
 
-function productReducer(state = initialState, action) {
-  let { type, payload } = action;
-  switch (type) {
-    case "GET_PRODUCT_SUCCESS":
-      return { ...state, productList: payload.data, detail:[] };
-    case "GET_DETAIL_SUCCESS":
-      return { ...state, detail: payload.data };
-    default:
-      return { ...state };
-  }
-}
+const productSlice = createSlice({
+  name: "product",
+  initialState,
+  reducers: {
+    getProducts(state, action) {
+      state.productList = action.payload.data;
+      state.detail = [];
+    },
+    getDetail(state, action) {
+      state.detail = action.payload.data;
+    },
+  },
+});
 
-export default productReducer;
+export const productActions = productSlice.actions;
+export default productSlice.reducer;

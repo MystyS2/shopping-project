@@ -5,6 +5,8 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import SearchBox from "./SearchBox";
 import { useDispatch, useSelector } from "react-redux";
+import { authenticateActions } from "../redux/reducers/authenticateReducer";
+
 
 const Navbar = () => {
   const menuList = {
@@ -22,7 +24,7 @@ const Navbar = () => {
   const authenticate = useSelector((state) => state.auth.authenticate);
 
   const logout = (event) => {
-    dispatch({type:"LOGOUT"});
+    dispatch(authenticateActions.logout());
   };
 
   let [openSearchBox, setOpenSearchBox] = useState(false);
