@@ -2,7 +2,7 @@
 ### ⌛개발 기간  : 4일
 ### 💪프로젝트를 통해 배운 것
 - React와 Tailwind CSS, NextUI 라이브러리를 활용한 프론트엔드 개발에 익숙해짐
-- route와 redux, redux 미들웨어를 직접 프로젝트에 적용하며 학습함
+- route와 redux, redux 미들웨어, react toolkit의 일부 함수들을 직접 프로젝트에 적용하며 학습함
 - 반응형 디자인을 개발하며 flex, grid에 대한 이해도가 향상됨
 - my json server를 통한 간단한 api 서버 활용법을 학습함
 - Netlify를 사용한 배포 방식(이전 프로젝트는 github actions/gh-pages 사용)
